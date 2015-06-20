@@ -2,9 +2,10 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:local="clr-namespace:VoucherDemo.Pages;assembly=VoucherDemo"
+                xmlns:controls="clr-namespace:VoucherDemo.Controls;assembly=VoucherDemo"
              x:Class="VoucherDemo.Pages.VoucherNumberPage">
   <ScrollView>
-    <Grid Padding="0,20,0,0" BackgroundColor="Blue">
+    <Grid Padding="0,20,0,0">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="30"></RowDefinition>
@@ -22,16 +23,16 @@
       <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="20">       
         <StackLayout  HorizontalOptions="Fill">
           <ContentView x:Name="errContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
-            <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
+            <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="Black" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
           </ContentView>
-          
-          <Label Text="Merchant Number" TextColor="White"  HorizontalOptions="Center" Font="18" />
-          <Entry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+
+                    <Label Text="Merchant Number" TextColor="Black"  HorizontalOptions="Center" Font="18" />
+          <controls:CustomEntry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
           <ContentView Padding="0,15,0,0" HorizontalOptions="Fill" >
             <Button Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
           </ContentView>
         </StackLayout>
-        <Label Text="OR" HorizontalOptions="Center" TextColor="White" />
+                <Label Text="OR" HorizontalOptions="Center" TextColor="Black" />
         <Button Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"></Button>     
       </StackLayout>
       <ContentView Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Padding="0,30,0,0">

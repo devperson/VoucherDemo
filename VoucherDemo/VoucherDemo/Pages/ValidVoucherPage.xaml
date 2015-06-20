@@ -4,7 +4,7 @@
                 xmlns:local="clr-namespace:VoucherDemo.Pages;assembly=VoucherDemo"
              x:Class="VoucherDemo.Pages.ValidVoucherPage">
 
-  <Grid Padding="0,20,0,0" BackgroundColor="Blue">
+  <Grid Padding="0,20,0,0">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition ></RowDefinition>      

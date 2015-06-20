@@ -6,7 +6,7 @@
              x:Class="VoucherDemo.Pages.MerchantLoginPage">
 
   <ScrollView>
-    <Grid Padding="0,20,0,0" BackgroundColor="Blue">
+    <Grid Padding="0,20,0,0" >
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"></RowDefinition>        
         <RowDefinition ></RowDefinition>
@@ -25,8 +25,8 @@
           <Label LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
         </ContentView>
         
-        <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="White"/>
-        <Entry Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+        <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
+        <controls:CustomEntry Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
         <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
           <Button Text="LOGIN" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
         </ContentView>

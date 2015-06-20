@@ -39,6 +39,7 @@
     <Compile Include="Pages\Controls\ActivityView.xaml.cs">
       <DependentUpon>ActivityView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Controls\CustomEntry.cs" />
     <Compile Include="Pages\MerchantLoginPage.xaml.cs">
       <DependentUpon>MerchantLoginPage.xaml</DependentUpon>
     </Compile>
