@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:VoucherDemo.Pages;assembly=VoucherDemo"
+             x:Class="VoucherDemo.Pages.ValidVoucherPage">
+
+  <Grid Padding="0,20,0,0" BackgroundColor="Blue">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"></RowDefinition>
+      <RowDefinition ></RowDefinition>      
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="0.2*"></ColumnDefinition>
+      <ColumnDefinition ></ColumnDefinition>
+      <ColumnDefinition Width="0.2*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+
+    <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+
+    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2" Spacing="30">
+      <Button Text="Redeem Voucher" Clicked="Redeem_Clicked" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"></Button>
+      <!--<StackLayout Spacing="15" HorizontalOptions="Fill">
+        <ContentView Padding="5" VerticalOptions="FillAndExpand" BackgroundColor="Green" >
+          <Label LineBreakMode="WordWrap" Text="Valid Voucher." TextColor="White" FontAttributes="Bold" FontSize="20" VerticalOptions="FillAndExpand"/>
+        </ContentView>
+        <Button Text="Redeem Voucher" Clicked="Redeem_Clicked" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"></Button>
+      </StackLayout>-->
+      
+      <Button Text="Home" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="Fill" Clicked="Back_Clicked"/>
+    </StackLayout>
+  </Grid>
+</local:BasePage>

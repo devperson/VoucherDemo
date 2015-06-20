@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:VoucherDemo.Pages;assembly=VoucherDemo"
+             xmlns:controls="clr-namespace:VoucherDemo.Controls;assembly=VoucherDemo"
+             x:Class="VoucherDemo.Pages.MerchantLoginPage">
+
+  <ScrollView>
+    <Grid Padding="0,20,0,0" BackgroundColor="Blue">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"></RowDefinition>        
+        <RowDefinition ></RowDefinition>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+        <ColumnDefinition ></ColumnDefinition>
+        <ColumnDefinition Width="0.2*"></ColumnDefinition>
+      </Grid.ColumnDefinitions>
+      <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+
+      
+      <!---->
+      <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2">
+        <ContentView x:Name="errContent" Padding="5" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
+          <Label LineBreakMode="WordWrap" Text="Merchant number is inccorect." TextColor="White" FontAttributes="Bold" FontSize="20" VerticalOptions="FillAndExpand"/>
+        </ContentView>
+        
+        <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
+        <Entry Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+        <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
+          <Button Text="LOGIN" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
+        </ContentView>
+      </StackLayout>
+    </Grid>
+    <!--<controls:ActivityView IsVisible="True" VerticalOptions="Fill" HorizontalOptions="Fill" />-->
+  </ScrollView>
+</local:BasePage>
