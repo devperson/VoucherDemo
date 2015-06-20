@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using VoucherDemo.Pages;
+using VoucherDemo.ViewModels;
 using Xamarin.Forms;
 
 namespace VoucherDemo
 {
     public class App : Application
     {
+        public static MainViewModel MainVm { get; set; }
+
         public App()
         {
+            MainVm = new MainViewModel();
             // The root page of your application
             MainPage = new NavigationPage(new MerchantLoginPage());
         }
