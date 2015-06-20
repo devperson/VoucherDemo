@@ -17,14 +17,16 @@
     <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
 
     <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2" >
-      <Label Text="Total Vouchers Redeemed "  HorizontalOptions="Center" Font="18" TextColor="Black"/>
+      <Label Text="Total Vouchers Redeemed " TextColor="White"  HorizontalOptions="Center" Font="18" />
       <Label Text="45" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
-      <Label Text="Total Vouchers Outstanding "  HorizontalOptions="Center" Font="18" TextColor="Black"/>
+      <Label Text="Total Vouchers Outstanding " TextColor="White"  HorizontalOptions="Center" Font="18"/>
       <Label Text="203" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
+    
+       <ContentView Padding="0,20,0,0" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" VerticalOptions="End">
+        <Button Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="Back_Clicked" HorizontalOptions="Fill"></Button>
+       </ContentView>
     </StackLayout>
 
-    <ContentView Padding="0,0,0,40" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" VerticalOptions="End">
-      <Button Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="Back_Clicked" HorizontalOptions="Fill"></Button>
-    </ContentView>
+    <!---->
   </Grid>
 </local:BasePage>

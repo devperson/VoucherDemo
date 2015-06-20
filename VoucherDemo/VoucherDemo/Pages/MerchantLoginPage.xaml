@@ -21,12 +21,12 @@
       
       <!---->
       <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2">
-        <ContentView x:Name="errContent" Padding="5" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
-          <Label LineBreakMode="WordWrap" Text="Merchant number is inccorect." TextColor="White" FontAttributes="Bold" FontSize="20" VerticalOptions="FillAndExpand"/>
+        <ContentView x:Name="errContent" Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
+          <Label LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
         </ContentView>
         
-        <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
-        <Entry Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+        <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="White"/>
+        <Entry Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
         <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
           <Button Text="LOGIN" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
         </ContentView>

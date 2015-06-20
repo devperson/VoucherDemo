@@ -7,7 +7,7 @@
     <Grid Padding="0,20,0,0" BackgroundColor="Blue">
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"></RowDefinition>
-        <RowDefinition Height="40"></RowDefinition>
+        <RowDefinition Height="30"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>
       </Grid.RowDefinitions>
@@ -16,23 +16,26 @@
         <ColumnDefinition></ColumnDefinition>
         <ColumnDefinition Width="0.2*"></ColumnDefinition>
       </Grid.ColumnDefinitions>
-      <ContentView BackgroundColor="Red" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Fill">
-        <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
-      </ContentView>
+      <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+     
 
-      <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="20">
+      <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="20">       
         <StackLayout  HorizontalOptions="Fill">
-          <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
-          <Entry Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+          <ContentView x:Name="errContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
+            <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
+          </ContentView>
+          
+          <Label Text="Merchant Number" TextColor="White"  HorizontalOptions="Center" Font="18" />
+          <Entry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
           <ContentView Padding="0,15,0,0" HorizontalOptions="Fill" >
             <Button Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
           </ContentView>
         </StackLayout>
-        <Label Text="OR" HorizontalOptions="Center" />
+        <Label Text="OR" HorizontalOptions="Center" TextColor="White" />
         <Button Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"></Button>     
       </StackLayout>
       <ContentView Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Padding="0,30,0,0">
-        <Button Text="Statistics" BackgroundColor="Red" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"></Button>
+        <Button Text="Statistics" BackgroundColor="Fuchsia" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"></Button>
       </ContentView>
     </Grid>
   </ScrollView>
