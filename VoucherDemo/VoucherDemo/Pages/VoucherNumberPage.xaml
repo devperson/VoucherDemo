@@ -29,14 +29,14 @@
                     <Label Text="Merchant Number" TextColor="Black"  HorizontalOptions="Center" Font="18" />
           <controls:CustomEntry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
           <ContentView Padding="0,15,0,0" HorizontalOptions="Fill" >
-            <Button Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
+                        <controls:CustomButton Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
           </ContentView>
         </StackLayout>
                 <Label Text="OR" HorizontalOptions="Center" TextColor="Black" />
-        <Button Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"></Button>     
+                <controls:CustomButton Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"/>  
       </StackLayout>
       <ContentView Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Padding="0,30,0,0">
-        <Button Text="Statistics" BackgroundColor="Fuchsia" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"></Button>
+                <controls:CustomButton Type="Orange" Text="Statistics" BackgroundColor="Fuchsia" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"/>
       </ContentView>
     </Grid>
   </ScrollView>

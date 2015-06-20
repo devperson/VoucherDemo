@@ -35,12 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="Controls\CustomButton.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Controls\ActivityView.xaml.cs">
       <DependentUpon>ActivityView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Controls\CustomEntry.cs" />
+    <Compile Include="Controls\CustomEntry.cs" />
     <Compile Include="Pages\MerchantLoginPage.xaml.cs">
       <DependentUpon>MerchantLoginPage.xaml</DependentUpon>
     </Compile>

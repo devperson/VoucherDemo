@@ -28,7 +28,7 @@
         <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
         <controls:CustomEntry Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
         <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
-          <Button Text="LOGIN" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
+          <controls:CustomButton Text="LOGIN" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
         </ContentView>
       </StackLayout>
     </Grid>

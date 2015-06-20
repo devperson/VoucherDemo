@@ -28,7 +28,6 @@ namespace VoucherDemo.Droid.Renderers
             var gradient = new CAGradientLayer();
             gradient.Frame = this.View.Bounds;
             gradient.Colors = new CoreGraphics.CGColor[] { Color.FromHex("#FFEEF5FF").ToCGColor(), Color.FromHex("#FFBEDBFF").ToCGColor() };
-            //[view.layer insertSublayer:gradient atIndex:0];
 
             return gradient;
         }
