@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0D4DCBCA-E362-4CD2-9E55-1221A64C24EE}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
@@ -48,9 +46,14 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iOS Development: Xasan Fazilov (PENPQ9SZLJ)</CodesignKey>
     <MtouchDebug>true</MtouchDebug>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchI18n>
+    </MtouchI18n>
+    <IpaPackageName>
+    </IpaPackageName>
+    <CodesignProvision>2fff0b64-6e58-4805-9a57-4f35ac47cbba</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>none</DebugType>
@@ -95,6 +98,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\BasePageRenderer.cs" />
+    <Compile Include="Renderers\CustomButtonRenderer.cs" />
     <Compile Include="Renderers\CustomEntryRenderer.cs" />
     <Compile Include="Services\QRCodeService.cs" />
     <None Include="Entitlements.plist" />
@@ -105,6 +109,7 @@
   <ItemGroup>
     <ProjectReference Include="..\VoucherDemo\VoucherDemo.csproj">
       <Name>VoucherDemo</Name>
+      <Project>{7BC223AA-74F4-46C0-B816-866B4D6ED756}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -149,10 +154,10 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
     <Reference Include="zxing.ios">
-      <HintPath>..\..\..\..\..\Chris\mobilelistining\LaserList\packages\zxing.net.mobile\Build\Release\unified\zxing.ios.dll</HintPath>
+      <HintPath>..\..\packages\Zxing\unified\zxing.ios.dll</HintPath>
     </Reference>
     <Reference Include="ZXing.Net.Mobile">
-      <HintPath>..\..\..\..\..\Chris\mobilelistining\LaserList\packages\zxing.net.mobile\Build\Release\unified\ZXing.Net.Mobile.dll</HintPath>
+      <HintPath>..\..\packages\Zxing\unified\ZXing.Net.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

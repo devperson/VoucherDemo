@@ -6,42 +6,42 @@
              x:Class="VoucherDemo.Pages.VoucherNumberPage">
 
   <Grid>
-     <ScrollView>
-      <Grid Padding="0,20,0,0">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto"></RowDefinition>
-          <RowDefinition Height="30"></RowDefinition>
-          <RowDefinition Height="Auto"></RowDefinition>
-          <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="0.2*"></ColumnDefinition>
-          <ColumnDefinition></ColumnDefinition>
-          <ColumnDefinition Width="0.2*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+      <ScrollView>
+           <Grid Padding="0,20,0,0">
+              <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+              </Grid.RowDefinitions>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="0.2*"></ColumnDefinition>
+              </Grid.ColumnDefinitions>
+              <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
      
 
-        <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="20">       
-          <StackLayout  HorizontalOptions="Fill">
-            <ContentView x:Name="errContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
-              <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="Black" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
-            </ContentView>
+              <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="20">       
+                <StackLayout  HorizontalOptions="Fill">
+                  <ContentView x:Name="errContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
+                    <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="Black" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
+                  </ContentView>
 
-                      <Label Text="Merchant Number" TextColor="Black"  HorizontalOptions="Center" Font="18" />
-            <controls:CustomEntry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
-            <ContentView Padding="0,15,0,0" HorizontalOptions="Fill" >
-              <Button Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
+                          <Label Text="Merchant Number" TextColor="Black"  HorizontalOptions="Center" Font="18" />
+                <controls:CustomEntry x:Name="txtMerchant" Keyboard="Numeric" Text="{Binding MerchantNum}"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+                <ContentView Padding="0,15,0,0" HorizontalOptions="Fill" >
+                              <controls:CustomButton Text="SUBMIT" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
+                </ContentView>
+              </StackLayout>
+                      <Label Text="OR" HorizontalOptions="Center" TextColor="Black" />
+                      <controls:CustomButton Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"/>  
+            </StackLayout>
+             <ContentView Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Padding="0,30,0,0">
+                      <controls:CustomButton Type="Orange" Text="Statistics" BackgroundColor="Fuchsia" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"/>
             </ContentView>
-          </StackLayout>
-                  <Label Text="OR" HorizontalOptions="Center" TextColor="Black" />
-          <Button Text="SCAN QR CODE" BackgroundColor="Green" TextColor="White" Clicked="Scan_Clicked" HorizontalOptions="Fill"></Button>     
-        </StackLayout>
-        <ContentView Grid.Row="3" Grid.Column="1" HorizontalOptions="Fill" Padding="0,30,0,0">
-          <Button Text="Statistics" BackgroundColor="Fuchsia" TextColor="White" Clicked="Stat_Clicked" HorizontalOptions="Fill"></Button>
-        </ContentView>
-      </Grid>
-    </ScrollView>
+          </Grid>
+      </ScrollView>
 
     <controls:ActivityView IsVisible="False" VerticalOptions="Fill" HorizontalOptions="Fill" />
   </Grid>

@@ -13,6 +13,8 @@ namespace VoucherDemo.Pages
         public StatisticsPage()
         {
             InitializeComponent();
+            lbl1.FontSize = Device.OnPlatform(15, 18, 15);
+            lbl2.FontSize = Device.OnPlatform(15, 18, 15);
         }
 
         private void Back_Clicked(object sender, EventArgs e)

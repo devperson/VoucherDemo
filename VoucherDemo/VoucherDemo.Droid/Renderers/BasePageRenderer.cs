@@ -32,7 +32,7 @@ namespace VoucherDemo.Droid.Renderers
             GradientDrawable.Orientation.TopBottom,
             new int[] { Color.FromHex("#FFEEF5FF").ToAndroid().ToArgb(), Color.FromHex("#FFBEDBFF").ToAndroid().ToArgb() });
             gd.SetCornerRadius(0f);
-
+            
             return gd;
         }
     }
