@@ -89,6 +89,9 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\VoucherDemo.Droid\Services\WebService.cs">
+      <Link>Services\WebService.cs</Link>
+    </Compile>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renderers\BasePageRenderer.cs" />

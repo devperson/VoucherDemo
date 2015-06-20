@@ -5,6 +5,7 @@
              xmlns:controls="clr-namespace:VoucherDemo.Controls;assembly=VoucherDemo"
              x:Class="VoucherDemo.Pages.MerchantLoginPage">
 
+  <Grid>
   <ScrollView>
     <Grid Padding="0,20,0,0" >
       <Grid.RowDefinitions>
@@ -18,8 +19,6 @@
       </Grid.ColumnDefinitions>
       <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
 
-      
-      <!---->
       <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2">
         <ContentView x:Name="errContent" Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
           <Label LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
@@ -31,7 +30,8 @@
           <Button Text="LOGIN" BackgroundColor="Green" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"></Button>
         </ContentView>
       </StackLayout>
-    </Grid>
-    <!--<controls:ActivityView IsVisible="True" VerticalOptions="Fill" HorizontalOptions="Fill" />-->
+    </Grid>    
   </ScrollView>
+    <controls:ActivityView IsVisible="False" VerticalOptions="Fill" HorizontalOptions="Fill" />
+  </Grid>
 </local:BasePage>

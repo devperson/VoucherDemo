@@ -13,8 +13,8 @@ namespace VoucherDemo.Controls
         public ActivityView()
         {
             InitializeComponent();
-            
-            this.BackgroundColor = Color.FromHex("1A000000");
+
+            this.BackgroundColor = Color.FromHex("BF000000");
         }
     }
 }
