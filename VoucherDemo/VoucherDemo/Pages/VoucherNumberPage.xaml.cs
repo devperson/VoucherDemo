@@ -15,10 +15,12 @@ namespace VoucherDemo.Pages
             InitializeComponent();            
         }
 
+      
         private void Submit_Clicked(object sender, EventArgs e)
         {
             int vaucher = 0;
-            errContent.IsVisible = false;            
+            infoContent.IsVisible = false;
+            this.MakeErrorColor();
             if (int.TryParse(txtVoucher.Text.Trim(), out vaucher))
             {
                 activity.IsVisible = true;
@@ -31,14 +33,14 @@ namespace VoucherDemo.Pages
                     }
                     else
                     {
-                        errContent.IsVisible = true;
+                        infoContent.IsVisible = true;
                         lblText.Text = res.message;                
                     }
                 });                
             }
             else
             {
-                errContent.IsVisible = true;
+                infoContent.IsVisible = true;
                 lblText.Text = "Please type numeric value.";                
             }
         }
@@ -63,25 +65,35 @@ namespace VoucherDemo.Pages
         public void Redeem()
         {
             activity.IsVisible = true;
-            errContent.IsVisible = false;
+            infoContent.IsVisible = false;
             App.MainVm.WebService.Redeem(App.MainVm.Sp_ID, int.Parse(txtVoucher.Text.Trim()), (res) =>
             {
                 activity.IsVisible = false;
-                errContent.IsVisible = true;
+                infoContent.IsVisible = true;
                 if (res.redeemed)
+                {
+                    this.MakeInfoColor();
                     lblText.Text = "Vaucher successfully redeemed.";
-                else                                 
+                }
+                else
+                {
+                    this.MakeErrorColor();
                     lblText.Text = res.message;
-
-                //Device.StartTimer(TimeSpan.FromSeconds(5), () =>
-                //{
-                //    Device.BeginInvokeOnMainThread(() =>
-                //    {
-                //        errContent.IsVisible = false;
-                //    });                    
-                //    return false;
-                //});                
+                }
             });
         }
+
+        private void MakeInfoColor()
+        {
+            infoContent.BackgroundColor = Color.FromHex("FFA4D424");
+            lblText.TextColor = Color.FromHex("FF0A6A00");
+        }
+
+        private void MakeErrorColor()
+        {
+            infoContent.BackgroundColor = Color.Red;
+            lblText.TextColor = Color.White;
+        }
+
     }
 }

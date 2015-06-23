@@ -12,8 +12,7 @@ namespace VoucherDemo.Pages
     {
         public MerchantLoginPage()
         {
-            InitializeComponent();   
-            
+            InitializeComponent();               
         }
 
         private void Submit_Clicked(object sender, EventArgs e)

@@ -24,7 +24,7 @@
 
         <StackLayout Grid.Column="1" Grid.Row="2" HorizontalOptions="Fill" VerticalOptions="Start" Spacing="15">          
           <StackLayout  HorizontalOptions="Fill">
-            <ContentView x:Name="errContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
+            <ContentView x:Name="infoContent" Padding="10" BackgroundColor="Red" VerticalOptions="FillAndExpand" HorizontalOptions="Fill" IsVisible="False">
               <Label x:Name="lblText" LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="VOUCHER PREVIOUSLY REDEEMED" FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
             </ContentView>
             <Label Text="Enter Voucher Number" TextColor="Black"  HorizontalOptions="Center" Font="18" />
