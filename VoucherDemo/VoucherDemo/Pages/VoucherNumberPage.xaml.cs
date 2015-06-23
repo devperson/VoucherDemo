@@ -74,6 +74,7 @@ namespace VoucherDemo.Pages
                 {
                     this.MakeInfoColor();
                     lblText.Text = "Vaucher successfully redeemed.";
+                    txtVoucher.Text = "";
                 }
                 else
                 {
