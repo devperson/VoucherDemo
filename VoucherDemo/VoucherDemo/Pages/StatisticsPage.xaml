@@ -4,10 +4,11 @@
                 xmlns:local="clr-namespace:VoucherDemo.Pages;assembly=VoucherDemo"
                 xmlns:controls="clr-namespace:VoucherDemo.Controls;assembly=VoucherDemo"
              x:Class="VoucherDemo.Pages.StatisticsPage">
-  <Grid Padding="0,20,0,0">
+  <Grid >
     <Grid.RowDefinitions>
-      <RowDefinition Height="Auto"></RowDefinition>
-      <RowDefinition ></RowDefinition>
+      <RowDefinition Height="20"/>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="0.2*"></ColumnDefinition>
@@ -15,19 +16,19 @@
       <ColumnDefinition Width="0.2*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
 
-    <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+    <Image Grid.Column="1" Grid.Row="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
 
-    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2" >
+    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="3" >
             <Label x:Name="lbl1" Text="Total Vouchers Redeemed " TextColor="Black"  HorizontalOptions="Center" Font="18" />
-      <Label Text="45" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
+      <Label Text="{Binding Redeemed}" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
             <Label x:Name="lbl2" Text="Total Vouchers Outstanding " TextColor="Black"  HorizontalOptions="Center" Font="18"/>
-      <Label Text="203" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
+      <Label Text="{Binding Pending}" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
     
        <ContentView Padding="0,20,0,0" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" VerticalOptions="End">
          <controls:CustomButton Type="Orange"  Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="Back_Clicked" HorizontalOptions="Fill"/>
-       </ContentView>
+       </ContentView>      
     </StackLayout>
 
-    <!---->
+    <controls:ActivityView x:Name="activity" IsVisible="True" VerticalOptions="Fill" HorizontalOptions="Fill" Grid.RowSpan="3" Grid.ColumnSpan="3"/>
   </Grid>
 </local:BasePage>

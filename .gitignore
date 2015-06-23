@@ -9,3 +9,9 @@
 /VoucherDemo/VoucherDemo.Droid/VoucherDemo.Droid.csproj.user
 /VoucherDemo.v11.suo
 
+/VoucherDemo/VoucherDemo/.DS_Store
+/VoucherDemo/VoucherDemo.iOS/.DS_Store
+/VoucherDemo/VoucherDemo.Droid/*.DS_Store
+/VoucherDemo/.DS_Store
+/VoucherDemo.userprefs
+/.DS_Store

@@ -21,17 +21,17 @@
 
       <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2">
         <ContentView x:Name="errContent" Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
-          <Label LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
+          <Label x:Name="errlbl" LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect or you have internet connection problem." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
         </ContentView>
         
         <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
-        <controls:CustomEntry Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
+        <controls:CustomEntry x:Name="txt" Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
         <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
           <controls:CustomButton Text="LOGIN" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
         </ContentView>
       </StackLayout>
     </Grid>    
   </ScrollView>
-    <controls:ActivityView IsVisible="False" VerticalOptions="Fill" HorizontalOptions="Fill" />
+    <controls:ActivityView x:Name="activity" IsVisible="False" VerticalOptions="Fill" HorizontalOptions="Fill" />
   </Grid>
 </local:BasePage>

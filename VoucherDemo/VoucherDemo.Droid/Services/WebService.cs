@@ -34,63 +34,122 @@ namespace DriverApp.PCL
 			client.AddDefaultHeader("Accept", "application/json");
 		}
 
-        /// <summary>
-        /// Method provides register object service call.
-        /// </summary>    
-        public async void PostObject<T>(string requestUrl, T obj, Action<ResponseBase> onCompleted = null)
+        public async void Login(int num, Action<bool> completed)
         {
-            var asyncResult = await ExecuteServiceMethod<ResponseBase>(requestUrl, Method.POST, content =>
+            var restRequest = new RestRequest(string.Format("/api/v1/sponsors/{0}/exists", num), Method.GET);            
+
+            var boolVal = await Task.Run<bool>(() =>
+            {                
+                try
+                {
+                    var restResponse = Client.Execute(restRequest);                    
+                    if (!string.IsNullOrEmpty(restResponse.Content))
+                    {
+                        return JsonConvert.DeserializeObject<bool>(restResponse.Content);
+                    }                    
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                return false;
+            });
+
+            if (completed != null)
+                completed(boolVal);            
+        }
+
+        public async void ValidateVoucher(int spId, int vaucher, Action<ResponseBase> completed)
+        {
+            var asyncResult = await ExecuteServiceMethod<ResponseBase>(string.Format("/api/v1/vouchers/{0}/status?sp={1}", vaucher, spId), Method.GET, content =>
             {
                 var response = JsonConvert.DeserializeObject<ResponseBase>(content);
                 return response;
-            }, obj);
-            if (onCompleted != null)
-                onCompleted(asyncResult);
+            });
+            if (completed != null)
+                completed(asyncResult);
         }
 
-       
+        public async void Redeem(int spId, int vaucher, Action<RedeemResponse> completed)
+        {
+            var asyncResult = await ExecuteServiceMethod<RedeemResponse>(string.Format("/api/v1/vouchers/{0}/redeem?sp={1}", vaucher, spId), Method.PATCH, content =>
+            {
+                var response = JsonConvert.DeserializeObject<RedeemResponse>(content);
+                return response;
+            });
+            if (completed != null)
+                completed(asyncResult);
+        }
+
+        public async void GetRedeemed(int spId, Action<StatisticsResponse> completed)
+        {
+            var asyncResult = await ExecuteServiceMethod<StatisticsResponse>(string.Format("/api/v1/sponsors/{0}/redeemed_vouchers", spId), Method.GET, content =>
+            {
+                var response = JsonConvert.DeserializeObject<StatisticsResponse>(content);
+                return response;
+            });
+            if (completed != null)
+                completed(asyncResult);
+        }
+
+        public async void GetPending(int spId, Action<StatisticsResponse> completed)
+        {
+            var asyncResult = await ExecuteServiceMethod<StatisticsResponse>(string.Format("/api/v1/sponsors/{0}/pending_vouchers", spId), Method.GET, content =>
+            {
+                var response = JsonConvert.DeserializeObject<StatisticsResponse>(content);
+                return response;
+            });
+            if (completed != null)
+                completed(asyncResult);
+        }
+
         /// <summary>
-        /// Helper method for sending http commands.
-        /// </summary>        
-        private Task<T> ExecuteServiceMethod<T>(string resource, Method method, Func<string, T> deserialiser, object requestObject = null) where T : ResponseBase
+        /// Method provides register object service call.
+        /// </summary>    
+        //public async void PostObject<T>(string requestUrl, T obj, Action<ResponseBase> onCompleted = null)
+        //{
+        //    var asyncResult = await ExecuteServiceMethod<ResponseBase>(requestUrl, Method.POST, content =>
+        //    {
+        //        var response = JsonConvert.DeserializeObject<ResponseBase>(content);
+        //        return response;
+        //    }, obj);
+        //    if (onCompleted != null)
+        //        onCompleted(asyncResult);
+        //}
+
+
+        private Task<T> ExecuteServiceMethod<T>(string resource, Method method, Func<string, T> deserialiser) where T : ResponseBase
         {
             var restRequest = new RestRequest(resource, method);
-            if (requestObject != null)
-            {
-                restRequest.RequestFormat = DataFormat.Json;
-                var json = JsonConvert.SerializeObject(requestObject);
-                restRequest.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);                
-            }
+            //if (requestObject != null)
+            //{
+            //    restRequest.RequestFormat = DataFormat.Json;
+            //    var json = JsonConvert.SerializeObject(requestObject);
+            //    restRequest.AddParameter("application/json; charset=utf-8", json, ParameterType.RequestBody);
+            //}
 
             return Task.Run<T>(() =>
             {
-                T response = Activator.CreateInstance<T>();
-                var errorResponse = new ErrorResponseModel();
+                T response = Activator.CreateInstance<T>();                
                 try
-					{
+                {
                     var restResponse = Client.Execute(restRequest);
-                    this.CheckServer(restResponse.Content);
+
+                    if (!this.HasHtmlString(restResponse.Content))
+                        response.message = "There seems to be problem with internet connection.";                    
+                    
                     if (!string.IsNullOrEmpty(restResponse.Content))
                     {
-                        response = deserialiser(restResponse.Content);
-                        if (restResponse.Content.Contains("ExceptionMessage") || restResponse.Content.Contains("Message"))
-                            errorResponse = JsonConvert.DeserializeObject<ErrorResponseModel>(restResponse.Content);
+                        response = deserialiser(restResponse.Content);                        
                     }
                     else
                     {
-                        errorResponse.ExceptionMessage = "There seems to be internet connection problem.";
-                        response.Success = false;
-                    }
-                    if (errorResponse != null && errorResponse.HasErrorMessage)
-                    {
-                        response.Success = false;
-                        response.Error = errorResponse.ErrorMessage;
+                        response.message = "There seems to be problem with internet connection.";          
                     }
                 }
                 catch (Exception ex)
                 {
-                    response.Success = false;
-                    response.Error = "Server is down please try later.";
+                    response.message = "Server is down please try later.";          
                 }
                 return response;
             });
@@ -99,11 +158,14 @@ namespace DriverApp.PCL
         /// <summary>
         /// Helper method for validating service result.
         /// </summary>        
-        private void CheckServer(string responsString)
+        private bool HasHtmlString(string responsString)
         {
             string htmlContent = "<!DOCTYPE";
             if (responsString.Contains(htmlContent))
-                throw new Exception("Server is down please try later.");
+                return true;
+            return false;
         }
+
+       
     }
 }

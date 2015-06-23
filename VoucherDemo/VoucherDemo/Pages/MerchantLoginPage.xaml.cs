@@ -18,7 +18,32 @@ namespace VoucherDemo.Pages
 
         private void Submit_Clicked(object sender, EventArgs e)
         {
-            this.Navigation.PushAsync(new VoucherNumberPage(), true);
+            errContent.IsVisible = false;
+            int num = 0;
+            if(int.TryParse(txt.Text,out num))
+            {
+                activity.IsVisible = true;
+                App.MainVm.WebService.Login(num, (result) =>
+                {
+                    activity.IsVisible = false;
+                    if(result)
+                    {
+                        App.MainVm.Sp_ID = num;
+                        txt.Text = "";
+                        this.Navigation.PushAsync(new VoucherNumberPage(), true);
+                    }
+                    else
+                    {
+                        errContent.IsVisible = true;
+                        errlbl.Text = "Merchant number is inccorect or you have internet connection problem.";
+                    }
+                });            
+            }
+            else
+            {
+                errContent.IsVisible = true;
+                errlbl.Text = "Please type numeric value."; 
+            }
         }
     }
 }

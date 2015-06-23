@@ -15,6 +15,22 @@ namespace VoucherDemo.Pages
             InitializeComponent();
             lbl1.FontSize = Device.OnPlatform(15, 18, 15);
             lbl2.FontSize = Device.OnPlatform(15, 18, 15);
+
+            this.BindingContext = App.MainVm;
+
+            activity.IsVisible = true;
+            App.MainVm.WebService.GetRedeemed(App.MainVm.Sp_ID, (res) =>
+            {
+                App.MainVm.Redeemed = res.count;
+
+                App.MainVm.WebService.GetPending(App.MainVm.Sp_ID, (res2) =>
+                {
+                    App.MainVm.Pending = res2.count;
+
+                    activity.IsVisible = false;
+                });
+            });
+           
         }
 
         private void Back_Clicked(object sender, EventArgs e)

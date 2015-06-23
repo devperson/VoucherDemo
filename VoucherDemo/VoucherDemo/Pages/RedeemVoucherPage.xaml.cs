@@ -8,16 +8,19 @@ using Xamarin.Forms;
 
 namespace VoucherDemo.Pages
 {
-    public partial class ValidVoucherPage : BasePage
+    public partial class RedeemVoucherPage : BasePage
     {
-        public ValidVoucherPage()
+        VoucherNumberPage _prevPage;
+        public RedeemVoucherPage(VoucherNumberPage prevPage)
         {
+            _prevPage = prevPage;
             InitializeComponent();
         }
 
         private void Redeem_Clicked(object sender, EventArgs e)
         {
-            
+            _prevPage.Redeem();
+            this.Navigation.PopAsync(true);            
         }
 
         private void Back_Clicked(object sender, EventArgs e)
