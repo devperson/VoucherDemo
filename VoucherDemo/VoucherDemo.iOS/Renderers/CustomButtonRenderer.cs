@@ -24,6 +24,8 @@ namespace VoucherDemo.iOS.Renderers
             var elementButton = this.Element as CustomButton;
             if (elementButton.Type == "Orange")
                 Control.Layer.InsertSublayer(CreateGradientColor("#FFFF9035", "#FFCB6E20", "#FFF6923F", Control.Bounds), 0);
+            else if (elementButton.Type == "Red")
+                Control.Layer.InsertSublayer(CreateGradientColor("#FFC64646", "#FF963636", "#FFB95454", Control.Bounds), 0);
             else Control.Layer.InsertSublayer(CreateGradientColor("#FF9CC646", "#FF769636", "#FF98B954", Control.Bounds), 0);
         }
 

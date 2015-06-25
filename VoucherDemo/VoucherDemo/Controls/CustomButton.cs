@@ -11,7 +11,7 @@ namespace VoucherDemo.Controls
     {
         public CustomButton()
         {
-            this.FontSize = 25;
+			this.FontSize = Device.OnPlatform (20, 25, 20);
             this.TextColor = Color.White;
         }
         public string Type { get; set; }
