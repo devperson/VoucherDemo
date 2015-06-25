@@ -7,8 +7,9 @@
 
   <Grid>
   <ScrollView>
-    <Grid Padding="0,20,0,0" >
+    <Grid>
       <Grid.RowDefinitions>
+        <RowDefinition Height="35"></RowDefinition>
         <RowDefinition Height="Auto"></RowDefinition>        
         <RowDefinition ></RowDefinition>
       </Grid.RowDefinitions>
@@ -17,9 +18,9 @@
         <ColumnDefinition ></ColumnDefinition>
         <ColumnDefinition Width="0.2*"></ColumnDefinition>
       </Grid.ColumnDefinitions>
-      <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+      <Image Grid.Column="1" Grid.Row="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
 
-      <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2">
+      <StackLayout Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Fill">
         <ContentView x:Name="errContent" Padding="10" VerticalOptions="FillAndExpand" BackgroundColor="Red" IsVisible="False">
           <Label x:Name="errlbl" LineBreakMode="WordWrap" XAlign="Center" TextColor="White" Text="Merchant number is inccorect or you have internet connection problem." FontAttributes="Bold" FontSize="15" VerticalOptions="FillAndExpand"/>
         </ContentView>
@@ -27,7 +28,7 @@
         <Label Text="Merchant Number"  HorizontalOptions="Center" Font="18" TextColor="Black"/>
         <controls:CustomEntry x:Name="txt" Text="{Binding MerchantNum}" Keyboard="Numeric"  WidthRequest="150" BackgroundColor="White" HorizontalOptions="Fill" TextColor="Black"/>
         <ContentView Padding="0,10,0,0" HorizontalOptions="Fill" >
-          <controls:CustomButton Text="LOGIN" TextColor="White" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
+          <controls:CustomButton Text="LOGIN" Clicked="Submit_Clicked" HorizontalOptions="Fill"/>
         </ContentView>
       </StackLayout>
     </Grid>    

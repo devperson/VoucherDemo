@@ -6,7 +6,7 @@
              x:Class="VoucherDemo.Pages.StatisticsPage">
   <Grid >
     <Grid.RowDefinitions>
-      <RowDefinition Height="20"/>
+      <RowDefinition Height="35"/>
       <RowDefinition Height="Auto"/>
       <RowDefinition />
     </Grid.RowDefinitions>
@@ -25,7 +25,7 @@
       <Label Text="{Binding Pending}" XAlign="Center"  HorizontalOptions="Fill" Font="18" TextColor="Black" BackgroundColor="White"/>
     
        <ContentView Padding="0,20,0,0" HorizontalOptions="Fill" Grid.Row="1" Grid.Column="1" VerticalOptions="End">
-         <controls:CustomButton Type="Orange"  Text="Home" BackgroundColor="Maroon" TextColor="White" Clicked="Back_Clicked" HorizontalOptions="Fill"/>
+         <controls:CustomButton Type="Orange"  Text="Home" Clicked="Back_Clicked" HorizontalOptions="Fill"/>
        </ContentView>      
     </StackLayout>
 

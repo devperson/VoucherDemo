@@ -10,11 +10,11 @@ namespace VoucherDemo.Services
     public interface IWebServiceClient
     {
         //void PostObject<T>(string requestUrl, T obj, Action<ResponseBase> onCompleted = null);   
-        void Login(int num, Action<bool> completed);
-        void ValidateVoucher(int spId, int vaucher, Action<ResponseBase> completed);
-        void Redeem(int spId, int vaucher, Action<RedeemResponse> completed);
+        void Login(long num, Action<bool> completed);
+        void ValidateVoucher(long spId, long vaucher, Action<ResponseBase> completed);
+        void Redeem(long spId, long vaucher, Action<RedeemResponse> completed);
 
-        void GetRedeemed(int spId, Action<StatisticsResponse> completed);
-        void GetPending(int spId, Action<StatisticsResponse> completed);
+        void GetRedeemed(long spId, Action<StatisticsResponse> completed);
+        void GetPending(long spId, Action<StatisticsResponse> completed);
     }
 }

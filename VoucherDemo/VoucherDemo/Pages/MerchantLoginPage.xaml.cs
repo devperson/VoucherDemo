@@ -16,16 +16,16 @@ namespace VoucherDemo.Pages
         }
 
         private void Submit_Clicked(object sender, EventArgs e)
-        {
+        {            
             errContent.IsVisible = false;
-            int num = 0;
-            if(int.TryParse(txt.Text,out num))
+            long num = 0;
+            if (long.TryParse(txt.Text, out num))
             {
                 activity.IsVisible = true;
                 App.MainVm.WebService.Login(num, (result) =>
                 {
                     activity.IsVisible = false;
-                    if(result)
+                    if (result)
                     {
                         App.MainVm.Sp_ID = num;
                         txt.Text = "";
@@ -36,12 +36,12 @@ namespace VoucherDemo.Pages
                         errContent.IsVisible = true;
                         errlbl.Text = "Merchant number is inccorect or you have internet connection problem.";
                     }
-                });            
+                });
             }
             else
             {
                 errContent.IsVisible = true;
-                errlbl.Text = "Please type numeric value."; 
+                errlbl.Text = "Please type numeric value.";
             }
         }
     }

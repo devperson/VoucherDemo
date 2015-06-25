@@ -27,6 +27,8 @@ namespace VoucherDemo.Droid.Renderers
             var elementButton = this.Element as CustomButton;
             if (elementButton.Type == "Orange")
                 Control.SetBackgroundDrawable(CreateGradientColor("#FFFF9035", "#FFCB6E20", "#FFF6923F"));
+            else if (elementButton.Type == "Red")
+                Control.SetBackgroundDrawable(CreateGradientColor("#FFC64646", "#FF963636", "#FFB95454"));
             else Control.SetBackgroundDrawable(CreateGradientColor("#FF9CC646", "#FF769636", "#FF98B954"));
         }
 

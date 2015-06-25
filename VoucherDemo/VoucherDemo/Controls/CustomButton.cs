@@ -9,6 +9,11 @@ namespace VoucherDemo.Controls
 {
     public class CustomButton : Button
     {
+        public CustomButton()
+        {
+            this.FontSize = 25;
+            this.TextColor = Color.White;
+        }
         public string Type { get; set; }
     }
 

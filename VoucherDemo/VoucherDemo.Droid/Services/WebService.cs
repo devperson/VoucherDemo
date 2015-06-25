@@ -34,7 +34,7 @@ namespace DriverApp.PCL
 			client.AddDefaultHeader("Accept", "application/json");
 		}
 
-        public async void Login(int num, Action<bool> completed)
+        public async void Login(long num, Action<bool> completed)
         {
             var restRequest = new RestRequest(string.Format("/api/v1/sponsors/{0}/exists", num), Method.GET);            
 
@@ -59,7 +59,7 @@ namespace DriverApp.PCL
                 completed(boolVal);            
         }
 
-        public async void ValidateVoucher(int spId, int vaucher, Action<ResponseBase> completed)
+        public async void ValidateVoucher(long spId, long vaucher, Action<ResponseBase> completed)
         {
             var asyncResult = await ExecuteServiceMethod<ResponseBase>(string.Format("/api/v1/vouchers/{0}/status?sp={1}", vaucher, spId), Method.GET, content =>
             {
@@ -70,7 +70,7 @@ namespace DriverApp.PCL
                 completed(asyncResult);
         }
 
-        public async void Redeem(int spId, int vaucher, Action<RedeemResponse> completed)
+        public async void Redeem(long spId, long vaucher, Action<RedeemResponse> completed)
         {
             var asyncResult = await ExecuteServiceMethod<RedeemResponse>(string.Format("/api/v1/vouchers/{0}/redeem?sp={1}", vaucher, spId), Method.PATCH, content =>
             {
@@ -81,7 +81,7 @@ namespace DriverApp.PCL
                 completed(asyncResult);
         }
 
-        public async void GetRedeemed(int spId, Action<StatisticsResponse> completed)
+        public async void GetRedeemed(long spId, Action<StatisticsResponse> completed)
         {
             var asyncResult = await ExecuteServiceMethod<StatisticsResponse>(string.Format("/api/v1/sponsors/{0}/redeemed_vouchers", spId), Method.GET, content =>
             {
@@ -92,7 +92,7 @@ namespace DriverApp.PCL
                 completed(asyncResult);
         }
 
-        public async void GetPending(int spId, Action<StatisticsResponse> completed)
+        public async void GetPending(long spId, Action<StatisticsResponse> completed)
         {
             var asyncResult = await ExecuteServiceMethod<StatisticsResponse>(string.Format("/api/v1/sponsors/{0}/pending_vouchers", spId), Method.GET, content =>
             {

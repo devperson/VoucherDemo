@@ -12,6 +12,7 @@ namespace VoucherDemo.Pages
         public BasePage()
         {
             NavigationPage.SetHasNavigationBar(this, false);
+            this.BackgroundColor = Color.FromHex("f5f5f5");
         }
     }
 }

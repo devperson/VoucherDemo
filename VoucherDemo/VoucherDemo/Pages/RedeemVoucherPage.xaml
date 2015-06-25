@@ -5,8 +5,9 @@
                 xmlns:controls="clr-namespace:VoucherDemo.Controls;assembly=VoucherDemo"
              x:Class="VoucherDemo.Pages.RedeemVoucherPage">
 
-  <Grid Padding="0,20,0,0">
+  <Grid >
     <Grid.RowDefinitions>
+      <RowDefinition Height="35" />
       <RowDefinition Height="Auto"></RowDefinition>
       <RowDefinition ></RowDefinition>      
     </Grid.RowDefinitions>
@@ -16,18 +17,11 @@
       <ColumnDefinition Width="0.2*"></ColumnDefinition>
     </Grid.ColumnDefinitions>
 
-    <Image Grid.Column="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
+    <Image Grid.Column="1" Grid.Row="1" Source="logo.png" HorizontalOptions="Center" VerticalOptions="Fill"></Image>
 
-    <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Fill"  Grid.RowSpan="2" Spacing="30">
-            <controls:CustomButton Text="Redeem Voucher" Clicked="Redeem_Clicked" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"/>
-      <!--<StackLayout Spacing="15" HorizontalOptions="Fill">
-        <ContentView Padding="5" VerticalOptions="FillAndExpand" BackgroundColor="Green" >
-          <Label LineBreakMode="WordWrap" Text="Valid Voucher." TextColor="White" FontAttributes="Bold" FontSize="20" VerticalOptions="FillAndExpand"/>
-        </ContentView>
-        <Button Text="Redeem Voucher" Clicked="Redeem_Clicked" HorizontalOptions="Fill" BackgroundColor="Green" TextColor="White"></Button>
-      </StackLayout>-->
-
-            <controls:CustomButton Type="Orange" Text="Home" BackgroundColor="Maroon" TextColor="White" HorizontalOptions="Fill" Clicked="Back_Clicked"/>
+    <StackLayout Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" Spacing="30" VerticalOptions="Center" HorizontalOptions="Fill" >
+        <controls:CustomButton Text="Redeem Voucher" Clicked="Redeem_Clicked" HorizontalOptions="Fill" />      
+        <controls:CustomButton Text="Home" Type="Orange" HorizontalOptions="Fill" Clicked="Back_Clicked"/>
     </StackLayout>
   </Grid>
 </local:BasePage>

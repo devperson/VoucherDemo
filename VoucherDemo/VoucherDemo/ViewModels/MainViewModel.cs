@@ -17,7 +17,7 @@ namespace VoucherDemo.ViewModels
 
         
 
-        public int Sp_ID { get; set; }
+        public long Sp_ID { get; set; }
 
         private IWebServiceClient _service;
         public IWebServiceClient WebService

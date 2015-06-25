@@ -18,10 +18,10 @@ namespace VoucherDemo.Pages
       
         private void Submit_Clicked(object sender, EventArgs e)
         {
-            int vaucher = 0;
+            long vaucher = 0;
             infoContent.IsVisible = false;
             this.MakeErrorColor();
-            if (int.TryParse(txtVoucher.Text.Trim(), out vaucher))
+            if (long.TryParse(txtVoucher.Text.Trim(), out vaucher))
             {
                 activity.IsVisible = true;
                 App.MainVm.WebService.ValidateVoucher(App.MainVm.Sp_ID, vaucher, (res) =>

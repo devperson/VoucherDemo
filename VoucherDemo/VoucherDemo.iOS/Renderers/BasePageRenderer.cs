@@ -20,7 +20,7 @@ namespace VoucherDemo.Droid.Renderers
         {
             base.OnElementChanged(e);
 
-            this.View.Layer.InsertSublayer(CreateGradientColor(), 0);
+            //this.View.Layer.InsertSublayer(CreateGradientColor(), 0);
         }
 
         private CAGradientLayer CreateGradientColor()

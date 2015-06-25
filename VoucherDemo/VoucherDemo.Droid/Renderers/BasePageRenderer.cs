@@ -23,7 +23,8 @@ namespace VoucherDemo.Droid.Renderers
         protected override void OnElementChanged(ElementChangedEventArgs<Xamarin.Forms.Page> e)
         {
             base.OnElementChanged(e);
-            this.SetBackgroundDrawable(CreateGradientColor());
+
+            //this.SetBackgroundDrawable(CreateGradientColor());
         }
 
         private GradientDrawable CreateGradientColor()
