@@ -10,7 +10,7 @@ namespace VoucherDemo.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        public string ApiUrl = "https://cbs.cakefundraising.com";
+        public string ApiUrl = "https://eatsforgood.cakecausemarketing.com"; //"https://cbs.cakefundraising.com";
         public MainViewModel()
         {            
         }
