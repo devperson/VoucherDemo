@@ -17,10 +17,13 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.joe.eatsforgood</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>1.2</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.1</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>Icon-60@2x</string>
+		<string>Icon-Small-40@2x</string>
+	</array>
 </dict>
 </plist>
