@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.joe.eatsforgood" android:versionName="1.0.1" android:versionCode="2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="com.joe.eatsforgood" android:versionName="1.0.2" android:versionCode="3">
 	<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="21" />
-	<application android:theme="@style/android:Theme.Holo.Light" android:label="EatsForGood"></application>
+	<application android:theme="@style/android:Theme.Holo.Light" android:label="EatsForGood" android:icon="@drawable/icon"></application>
 </manifest>

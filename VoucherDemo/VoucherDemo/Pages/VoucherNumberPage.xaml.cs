@@ -21,7 +21,7 @@ namespace VoucherDemo.Pages
             long vaucher = 0;
             infoContent.IsVisible = false;
             this.MakeErrorColor();
-            if (long.TryParse(txtVoucher.Text.Trim(), out vaucher))
+            if (txtVoucher.Text != null && long.TryParse(txtVoucher.Text.Trim(), out vaucher))
             {
                 activity.IsVisible = true;
                 App.MainVm.WebService.ValidateVoucher(App.MainVm.Sp_ID, vaucher, (res) =>
@@ -34,14 +34,14 @@ namespace VoucherDemo.Pages
                     else
                     {
                         infoContent.IsVisible = true;
-                        lblText.Text = res.message;                
+                        lblText.Text = res.message;
                     }
-                });                
+                });
             }
             else
             {
                 infoContent.IsVisible = true;
-                lblText.Text = "Please type numeric value.";                
+                lblText.Text = "Please type numeric value.";
             }
         }
 

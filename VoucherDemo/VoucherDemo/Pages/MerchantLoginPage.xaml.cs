@@ -16,10 +16,10 @@ namespace VoucherDemo.Pages
         }
 
         private void Submit_Clicked(object sender, EventArgs e)
-        {            
+        {
             errContent.IsVisible = false;
             long num = 0;
-            if (long.TryParse(txt.Text, out num))
+            if (txt.Text != null && long.TryParse(txt.Text, out num))
             {
                 activity.IsVisible = true;
                 App.MainVm.WebService.Login(num, (result) =>
